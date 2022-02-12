@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Post } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -12,8 +12,13 @@ router.get("/", async (req, res) => {
     // Serialize user data so templates can read it
     const users = userData.map((blogs) => blogs.get({ plain: true }));
 
+    const postData = await Post.findAll({
+      order: [["id", "DESC"]],
+    });
+
+    const posts = postData.map((posts) => posts.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
-    res.render("homepage", { users });
+    res.render("homepage", { users, posts });
   } catch (err) {
     res.status(500).json(err);
   }
