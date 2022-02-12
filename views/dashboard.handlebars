@@ -1,0 +1,16 @@
+{{#each posts as |post|}}
+  <div>
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
+  </div>
+{{/each}}
+<div>
+  <h2>Create Post</h2>
+  <form>
+    <label for="postTitle">Post Title</label>
+    <input type="text" name="postTitle" id="postTitle" />
+    <label for="postBody">Post Body</label>
+    <input type="text" name="postBody" id="postBody" />
+    <button>Submit</button>
+  </form>
+</div>
