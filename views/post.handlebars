@@ -1,0 +1,41 @@
+<div class="card">
+    <h1 class="cardTitle">{{data.post.title}}</h1>
+    <p class="cardBody">{{data.post.body}}</p>
+    <p class="cardFooter">Created by: {{data.post.user.name}}</p>
+    <p class="cardFooter">Created at: {{data.formattedPostTime}} {{data.formattedPostDate}} </p>
+</div>
+{{#if data.session.logged_in}}
+<form>
+    <label for="commentBody"><h2>Leave a comment: </h2></label>
+    <input type="text" name="commentBody" id="commentBody"></br>
+    <btn class="button" id="commentSubmit"> Submit </btn>
+</form>
+{{/if}}
+<div id="comments">
+    {{#each data.comments as |comment|}}
+    <div>
+        <p class= "commentId">{{comment.id}}</p>
+        <p>
+            {{comment.body}}
+        </p>
+        <p>
+            Comment by : {{comment.user.name}}
+        </p>
+        <p>
+            Comment created : {{comment.date_stamp}}
+        </p>
+        {{data.session.user_id}}
+        {{#compareTwo comment.user.id ../data.session.user_id}}
+        <btn class="button commentDeleteButton">Delete Comment</btn>
+        {{/compareTwo}}
+        
+    </div>
+    {{/each}}
+</div>
+
+<div id="commentVariables">
+    <p id="userId">{{data.session.user_id}}</p>
+    <p id="postId">{{data.post.id}}</p>
+</div>
+
+<script src="/js/post.js"></script>

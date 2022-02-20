@@ -1,6 +1,6 @@
 {{#each data.posts as |post|}}
   <div>
-    <h1>{{post.title}}</h1>
+    <a href="/post/{{post.id}}"><h1>{{post.title}}</h1></a>
     <p>{{post.body}}</p>
     <p>Created by: {{post.user.name}}</p>
   </div>

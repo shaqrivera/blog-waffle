@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -48,5 +48,28 @@ router.get("/dashboard", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/post/:post_id', async (req,res)=>{
+  const session = req.session;
+  const postData = await Post.findByPk(req.params.post_id, {
+    include: User
+  });
+  const post = postData.get({plain: true});
+      let postDate = new Date(post.date_stamp);
+      const formattedPostMonth = postDate.toLocaleString('default', { month: 'long' });
+      let formattedPostDate = `${formattedPostMonth} ${postDate.getDate()}, ${postDate.getFullYear()} `;
+      let formattedPostTime = `${postDate.toLocaleTimeString()}`;
+
+  const commentData = await Comment.findAll({
+    where: {
+      post_id : req.params.post_id
+    },
+    include: User 
+  });
+  const comments = commentData.map((comment)=> comment.get({plain: true}));
+  
+
+  res.render("post", {data: {post, session, formattedPostDate, formattedPostTime, comments}})
 });
 module.exports = router;
