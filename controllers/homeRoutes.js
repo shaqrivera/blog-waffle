@@ -4,22 +4,15 @@ const { User, Post } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const session = req.session;
-    // Get all users, sorted by name
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-      order: [["name", "ASC"]],
-    });
-
-    // Serialize user data so templates can read it
-    const users = userData.map((users) => users.get({ plain: true }));
 
     const postData = await Post.findAll({
-      order: [["id", "DESC"]],
+      order: [["date_stamp", "DESC"]],
+      include: User
     });
 
     const posts = postData.map((posts) => posts.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
-    res.render("homepage", { users, posts, session });
+    res.render("homepage", { data: { posts, session} });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -31,7 +24,7 @@ router.get("/login", async (req, res) => {
       res.redirect('/dashboard');
     }
     else{
-    res.render("login", {session});
+    res.render("login", {data:{session}});
   }
   } catch (err) {
     res.status(500).json(err);
@@ -45,7 +38,10 @@ router.get("/dashboard", async (req, res) => {
         where: { user_id: req.session.user_id },
       });
       const posts = postData.map((posts) => posts.get({ plain: true }));
-      res.render("dashboard", { posts, session });
+      const userData = await User.findByPk(req.session.user_id);
+      const user = userData.get({plain: true});
+
+      res.render("dashboard", { data: {posts, session, user} });
     } else {
       res.redirect("/login");
     }

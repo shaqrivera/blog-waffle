@@ -1,7 +1,7 @@
-{{#each posts as |post|}}
+{{#each data.posts as |post|}}
   <div>
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
-    <p>{{post.user_id}}</p>
+    <p>Created by: {{post.user.name}}</p>
   </div>
 {{/each}}

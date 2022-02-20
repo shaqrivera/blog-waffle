@@ -1,7 +1,11 @@
-{{#each posts as |post|}}
+<h1>Dashboard for {{data.user.name}}</h1>
+
+{{#each data.posts as |post|}}
   <div>
+    <p class="postId">{{post.id}}</p>
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
+    <btn class="deleteButton">Delete</btn>
   </div>
 {{/each}}
 <div>
@@ -11,6 +15,8 @@
     <input type="text" name="postTitle" id="postTitle" />
     <label for="postBody">Post Body</label>
     <input type="text" name="postBody" id="postBody" />
-    <button>Submit</button>
+    <button id="postSubmit">Submit</button>
   </form>
 </div>
+<p id="userId">{{data.session.user_id}}</p>
+<script src="/js/dashboard.js"></script>

@@ -12,10 +12,10 @@
         <ul>
           <li><a id="homeButton">Home</a></li>
           <li><a id="dashboardButton">Dashboard</a></li>
-          {{#unless session.logged_in}}
+          {{#unless data.session.logged_in}}
           <li><a id="logInSignUpButton">Log In / Sign Up</a></li>
           {{/unless}}
-          {{#if session.logged_in}}
+          {{#if data.session.logged_in}}
           <li><a id="logOut">Logout</a></li>
           {{/if}}
           

@@ -28,6 +28,11 @@ Post.init(
         key: "id",
       },
     },
+    date_stamp:{
+      type: DataTypes.DATE,
+      allowNull: false,
+      
+    }
   },
   {
     sequelize,
