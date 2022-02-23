@@ -1,0 +1,69 @@
+:root{
+    --navy: #312C51;
+    --dark-purple: #48426D;
+    --tan: #F0C38E;
+    --peach: #F1AA9B;
+    
+    
+
+}
+body{
+    background-color: var(--peach);
+    font-family: 'Oswald', sans-serif;
+}
+nav{
+    font-family: 'Shizuru', cursive;
+    background-color: var(--dark-purple);
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    width: 100%; /* Full width */
+}
+ul{
+   display: flex; 
+   flex-direction: row;
+   list-style: none;
+   justify-content: space-around;
+}
+
+.navButton{
+    font-size: 22px;
+    color: white;
+}
+main{
+    margin-top: 60px;
+}
+.posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.posts a{
+    text-decoration: none;
+    
+}
+.eachPost p{
+    font-size: 20px;
+}
+.eachPost{
+    background-color: var(--navy);
+    border: 10px solid white;
+    border-radius: 50px;
+    padding: 20px 20px;
+    margin-top: 40px;
+    color: white;
+}
+.button{
+    padding: 5px;
+    background-color: var(--tan);
+    border-radius: 50px;
+    color: black;
+}
+#commentSubmit{
+    position: relative;
+}
+.txtCenter{
+    text-align: center;
+}

@@ -1,8 +1,6 @@
 const postTitle = document.getElementById('postTitle');
 const postBody = document.getElementById('postBody');
 const postSubmit = document.getElementById('postSubmit');
-let userId = document.getElementById('userId');
-userId.style.display = 'none';
 let hiddenIds = document.querySelectorAll('.postId');
 hiddenIds.forEach(id => {
   id.style.display = 'none';
@@ -14,14 +12,12 @@ const deleteQuery = (e)=> {
   e.preventDefault();
   try {
     let postId = e.target.parentNode.firstChild.nextSibling.textContent;
-  userId = userId.textContent;
   fetch("http://localhost:5001/api/posts", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: userId,
           post_id: postId
         }),
       }).then(
@@ -39,6 +35,7 @@ const deleteQuery = (e)=> {
 
 const postQuery = (e) => {
   e.preventDefault();
+  if(postTitle.value && postBody.value){
   try {
     fetch("http://localhost:5001/api/posts", {
         method: "POST",
@@ -48,7 +45,6 @@ const postQuery = (e) => {
         body: JSON.stringify({
           title: postTitle.value,
           body: postBody.value,
-          user_id: userId.textContent,
           date_stamp: Date()
         }),
       }).then(
@@ -59,7 +55,7 @@ const postQuery = (e) => {
   } catch (err) {
     console.log(err);
   }
-    
+  }  
 }
 
 postSubmit.addEventListener('click', postQuery);

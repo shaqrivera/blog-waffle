@@ -1,19 +1,25 @@
-<div class="card">
+<div class="posts">
+<div class="eachPost">
     <h1 class="cardTitle">{{data.post.title}}</h1>
     <p class="cardBody">{{data.post.body}}</p>
     <p class="cardFooter">Created by: {{data.post.user.name}}</p>
     <p class="cardFooter">Created at: {{data.formattedPostTime}} {{data.formattedPostDate}} </p>
 </div>
+</div>
 {{#if data.session.logged_in}}
+<div class="eachPost txtCenter">
 <form>
     <label for="commentBody"><h2>Leave a comment: </h2></label>
-    <input type="text" name="commentBody" id="commentBody"></br>
-    <btn class="button" id="commentSubmit"> Submit </btn>
+    <input type="text" name="commentBody" id="commentBody">
 </form>
+</br> 
+<btn class="button" id="commentSubmit"> Submit </btn>
+</div>
 {{/if}}
-<div id="comments">
+<h1 class="txtCenter">Comments:</h1>
+<div id="comments posts">
     {{#each data.comments as |comment|}}
-    <div>
+    <div class="eachPost txtCenter">
         <p class= "commentId">{{comment.id}}</p>
         <p>
             {{comment.body}}
@@ -22,9 +28,8 @@
             Comment by : {{comment.user.name}}
         </p>
         <p>
-            Comment created : {{comment.date_stamp}}
+            Created : {{comment.date_stamp}}
         </p>
-        {{data.session.user_id}}
         {{#compareTwo comment.user.id ../data.session.user_id}}
         <btn class="button commentDeleteButton">Delete Comment</btn>
         {{/compareTwo}}
@@ -33,9 +38,7 @@
     {{/each}}
 </div>
 
-<div id="commentVariables">
-    <p id="userId">{{data.session.user_id}}</p>
-    <p id="postId">{{data.post.id}}</p>
-</div>
+<p id="postId">{{data.post.id}}</p>
+
 
 <script src="/js/post.js"></script>

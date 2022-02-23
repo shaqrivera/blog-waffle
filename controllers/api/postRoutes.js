@@ -35,7 +35,7 @@ router.post("/:post_id/comments", async (req, res) => {
 
     const commentData = await Comment.create({
       body: req.body.body,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       date_stamp: req.body.date_stamp,
       post_id: req.params.post_id
     });
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
     const newPost = Post.create({
       title: req.body.title,
       body: req.body.body,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       date_stamp: req.body.date_stamp
     });
     if(!newPost){
@@ -74,7 +74,7 @@ router.delete('/', async (req,res) => {
     const deletedPost = await Post.destroy({
     where:
     {
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
     id: req.body.post_id 
     }
     });

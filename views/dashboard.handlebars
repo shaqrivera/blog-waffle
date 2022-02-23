@@ -1,22 +1,24 @@
 <h1>Dashboard for {{data.user.name}}</h1>
-
+<div class="posts">
 {{#each data.posts as |post|}}
-  <div>
+  <a href="/post/{{post.id}}">
+  <div class="eachPost">
     <p class="postId">{{post.id}}</p>
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
-    <btn class="deleteButton">Delete</btn>
+    <btn class="button">Delete</btn>
   </div>
+  </a>
 {{/each}}
-<div>
+</div>
+<div class="eachPost txtCenter">
   <h2>Create Post</h2>
   <form>
     <label for="postTitle">Post Title</label>
     <input type="text" name="postTitle" id="postTitle" />
     <label for="postBody">Post Body</label>
     <input type="text" name="postBody" id="postBody" />
-    <button id="postSubmit">Submit</button>
+    <btn class="button" id="postSubmit">Submit</btn>
   </form>
 </div>
-<p id="userId">{{data.session.user_id}}</p>
 <script src="/js/dashboard.js"></script>
