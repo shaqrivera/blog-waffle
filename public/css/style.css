@@ -15,10 +15,14 @@ nav{
     font-family: 'Shizuru', cursive;
     background-color: var(--dark-purple);
     overflow: hidden;
-    position: fixed; /* Set the navbar to fixed position */
+    position: fixed !important; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     left: 0;
     width: 100%; /* Full width */
+}
+nav p, nav a{
+    color: var(--tan) !important;
+    font-size: 25px;
 }
 ul{
    display: flex; 
@@ -27,12 +31,11 @@ ul{
    justify-content: space-around;
 }
 
-.navButton{
-    font-size: 22px;
-    color: white;
+.navbar-brand{
+    font-size: 50px;
 }
 main{
-    margin-top: 60px;
+    margin-top: 100px;
 }
 .posts{
     display: flex;

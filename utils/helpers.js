@@ -6,4 +6,10 @@ const compareTwo = (a,b, opts) => {
     }
 }
 
-module.exports = {compareTwo};
+const formatDate = (date) => {
+    let postDate = new Date(date);
+      const formattedPostMonth = postDate.toLocaleString('default', { month: 'long' });
+      let formattedPostDateTime = `${postDate.toLocaleTimeString()} ${formattedPostMonth} ${postDate.getDate()}, ${postDate.getFullYear()} `;
+      return formattedPostDateTime;
+}
+module.exports = {compareTwo , formatDate};

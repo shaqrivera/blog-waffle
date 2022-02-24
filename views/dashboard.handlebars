@@ -1,4 +1,4 @@
-<h1>Dashboard for {{data.user.name}}</h1>
+<h1 class="txtCenter">Dashboard for {{data.user.name}}</h1>
 <div class="posts">
 {{#each data.posts as |post|}}
   <a href="/post/{{post.id}}">
@@ -6,7 +6,7 @@
     <p class="postId">{{post.id}}</p>
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
-    <btn class="button">Delete</btn>
+    <btn class="deleteButton button">Delete</btn>
   </div>
   </a>
 {{/each}}
@@ -18,7 +18,8 @@
     <input type="text" name="postTitle" id="postTitle" />
     <label for="postBody">Post Body</label>
     <input type="text" name="postBody" id="postBody" />
-    <btn class="button" id="postSubmit">Submit</btn>
-  </form>
+    </form>
+    <br>
+  <btn class="button" id="postSubmit">Submit</btn>
 </div>
 <script src="/js/dashboard.js"></script>

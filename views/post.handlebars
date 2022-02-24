@@ -28,7 +28,7 @@
             Comment by : {{comment.user.name}}
         </p>
         <p>
-            Created : {{comment.date_stamp}}
+            Created : {{formatDate comment.date_stamp}}
         </p>
         {{#compareTwo comment.user.id ../data.session.user_id}}
         <btn class="button commentDeleteButton">Delete Comment</btn>
