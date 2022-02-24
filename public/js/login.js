@@ -8,7 +8,7 @@ const signUpSubmit = document.getElementById("signUpSubmit");
 
 const loginQuery = (e) => {
     e.preventDefault();
-  fetch("http://localhost:5001/api/login", {
+  fetch("/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,14 +19,14 @@ const loginQuery = (e) => {
     }),
   }).then(
       (res)=>{
-          window.location.href = 'http://localhost:5001/dashboard';
+          window.location.href = '/dashboard';
       }
   );
 };
 
 signUpQuery = (e) => {
   e.preventDefault();
-  fetch("http://localhost:5001/api/users", {
+  fetch("/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +39,7 @@ signUpQuery = (e) => {
   }).then(
       (res)=>{
           if(res.ok){
-          window.location.href = 'http://localhost:5001/dashboard';
+          window.location.href = '/dashboard';
         }
       }
   );

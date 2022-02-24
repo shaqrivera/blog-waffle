@@ -12,7 +12,7 @@ const deleteQuery = (e)=> {
   e.preventDefault();
   try {
     let postId = e.target.parentNode.firstChild.nextSibling.textContent;
-  fetch("http://localhost:5001/api/posts", {
+  fetch("/api/posts", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const deleteQuery = (e)=> {
         }),
       }).then(
           (res)=>{
-              window.location.href = 'http://localhost:5001/dashboard';
+              window.location.href = '/dashboard';
           }
       );
   } catch (err) {
@@ -37,7 +37,7 @@ const postQuery = (e) => {
   e.preventDefault();
   if(postTitle.value && postBody.value){
   try {
-    fetch("http://localhost:5001/api/posts", {
+    fetch("/api/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const postQuery = (e) => {
         }),
       }).then(
           (res)=>{
-              window.location.href = 'http://localhost:5001/dashboard';
+              window.location.href = '/dashboard';
           }
       );
   } catch (err) {

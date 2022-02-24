@@ -14,7 +14,7 @@ const commentQuery = async (e) => {
     const commentBody = document.getElementById('commentBody').value.trim();
     if(commentBody){
       try {
-          fetch(`http://localhost:5001/api/posts/${postId}/comments`, {
+          fetch(`/api/posts/${postId}/comments`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const commentQuery = async (e) => {
         })
         .then(
             (res)=>{
-                window.location.href = `http://localhost:5001/post/${postId}`;
+                window.location.href = `/post/${postId}`;
             }
         );
       } catch (err) {
@@ -39,7 +39,7 @@ const commentDelete = (e) => {
   e.preventDefault();
   try {
     let commentId = e.target.parentNode.firstChild.nextSibling.textContent;
-  fetch(`http://localhost:5001/api/posts/${postId}/comments`, {
+  fetch(`/api/posts/${postId}/comments`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const commentDelete = (e) => {
       })
       .then(
           (res)=>{
-              window.location.href = `http://localhost:5001/post/${postId}`;
+              window.location.href = `/post/${postId}`;
           }
       );
   } catch (err) {

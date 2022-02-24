@@ -4,19 +4,19 @@ const logInSignUpButton = document.getElementById("logInSignUpButton");
 const logOutButton = document.getElementById("logOut");
 
 const homeQuery = () => {
-  window.location.href = "http://localhost:5001/";
+  window.location.href = "/";
 };
 const dashboardQuery = () => {
-  window.location.href = "http://localhost:5001/dashboard";
+  window.location.href = "/dashboard";
 };
 const logInSignUpQuery = () => {
-  window.location.href = "http://localhost:5001/login";
+  window.location.href = "/login";
 };
 const logOutButtonQuery = async () => {
-  await fetch("http://localhost:5001/api/login", {
+  await fetch("/api/login", {
     method: "DELETE"
   })
-  window.location.href = 'http://localhost:5001/login'
+  window.location.href = '/login'
 };
 
 homeButton.addEventListener("click", homeQuery);
