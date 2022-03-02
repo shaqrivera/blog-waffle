@@ -3,7 +3,7 @@
   ## Description
   Blog Waffle is a simple website which allows users to create accounts, create posts, and leave comments on existing posts.
 
-  Link to deployed app: <a href="https://blog-waffle.herokuapp.com/" target="_blank"></a>
+  Link to deployed app: <a href="https://blog-waffle.herokuapp.com/" target="_blank">Blog Waffle Deployed Link</a>
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
