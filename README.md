@@ -1,5 +1,6 @@
 ![license badge](https://img.shields.io/badge/license-MIT_License-blue)
   # Blog Waffle
+  <img width="1440" alt="blog-waffle" src="https://user-images.githubusercontent.com/90933707/163703886-bd2b237e-828f-4d2b-936e-bfa1c8a18f70.png">
   ## Description
   Blog Waffle is a simple website which allows users to create accounts, create posts, and leave comments on existing posts.
 
